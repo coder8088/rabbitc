@@ -1,0 +1,4 @@
+github.com/streadway/amqp v0.0.0-20200108173154-1c71cc93ed71 h1:2MR0pKUzlP3SGgj5NYJe/zRYDwOu9ku6YHy+Iw7l5DM=
+github.com/streadway/amqp v0.0.0-20200108173154-1c71cc93ed71/go.mod h1:AZpEONHx3DKn8O/DFsRAY58/XVQiIPMTMB1SddzLXVw=
+github.com/tedux/log v0.0.0-20200308132436-044cd981bbc6 h1:QY7AJVU17a613ej/7YW5NTw4t+4Fx7AGTQWHSVcwDOg=
+github.com/tedux/log v0.0.0-20200308132436-044cd981bbc6/go.mod h1:cj44POOWcxoznV5WN8b62vK3Jgt4UmFdhFWU6X4KSPc=
