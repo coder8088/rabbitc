@@ -15,7 +15,7 @@ const (
 
 type Producer interface {
 	Push(exchange, routingKey string, data []byte) error
-	ReliablePush(exchange, routingKey string, data []byte) <-chan bool
+	ReliablePush(exchange, routingKey string, data []byte)
 	UnreliablePush(exchange, routingKey string, data []byte) error
 }
 
@@ -26,16 +26,11 @@ type producer struct {
 	notifyConfirm chan amqp.Confirmation
 }
 
-func (p producer) ReliablePush(exchange, routingKey string, data []byte) <-chan bool {
-	done := make(chan bool)
-	go func() {
-		err := p.Push(exchange, routingKey, data)
-		for err != nil {
-			err = p.Push(exchange, routingKey, data)
-		}
-		done <- true
-	}()
-	return done
+func (p producer) ReliablePush(exchange, routingKey string, data []byte) {
+	err := p.Push(exchange, routingKey, data)
+	for err != nil {
+		err = p.Push(exchange, routingKey, data)
+	}
 }
 
 func (p producer) Push(exchange, routingKey string, data []byte) error {
