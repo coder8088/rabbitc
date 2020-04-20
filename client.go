@@ -25,7 +25,7 @@ type Client struct {
 	consumerWaitGroup    sync.WaitGroup
 }
 
-func New(amqpUri string, logger *log.Logger) *Client {
+func NewV1(amqpUri string, logger *log.Logger) *Client {
 	client := &Client{
 		logger:        logger,
 		uri:           amqpUri,
